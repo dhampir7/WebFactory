@@ -32,6 +32,32 @@
 
 - HTTP 통신
 
+## 🛢️ 데이터베이스 구조
+
+CREATE sequence seq_board;
+--일련 번호를 위한 sequence 생성
+
+
+CREATE TABLE tbl_board (
+    BNO NUMBER(10, 0),
+    TITLE VARCHAR2(200) NOT NULL,
+    CONTENT VARCHAR2(2000 BYTE) NOT NULL,
+    WRITER VARCHAR2(50 BYTE) NOT NULL,
+    REGDATE DATE DEFAULT SYSDATE,
+    UPDATEDATE DATE DEFAULT SYSDATE
+);
+
+
+--//게시물 저장을 위한 테이블 생성
+
+ALTER TABLE tbl_board add constraint pk_board
+primary key (bno);
+--게시물의 PK 지정
+
+
+DROP SEQUENCE seq_board;
+--sequence 삭제
+
 ## 📚 참고 자료
 
 - [코드로 배우는 스프링 웹 프로젝트](https://example.com/book-url)
